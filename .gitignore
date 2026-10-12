@@ -1,0 +1,39 @@
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Railway
+railway/
+nixpacks/
+
+# Gmail OAuth credentials (never commit)
+gmail_oauth/credentials.json
+gmail_oauth/token.json
+
+# Role backups
+role_backup_*.json

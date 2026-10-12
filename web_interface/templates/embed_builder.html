@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Embed Builder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #36393f;
+            color: #dcddde;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #4f545c;
+        }
+        .header h1 {
+            color: #fff;
+        }
+        .logout-btn {
+            background: #ed4245;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .panel {
+            background: #2f3136;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .panel h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #b9bbbe;
+            font-size: 14px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            background: #202225;
+            border: 1px solid #040405;
+            border-radius: 4px;
+            color: #dcddde;
+            font-size: 16px;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #7289da;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        input[type="color"] {
+            height: 40px;
+            cursor: pointer;
+        }
+        .field-item {
+            background: #202225;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .field-item input {
+            margin-bottom: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .btn-primary {
+            background: #7289da;
+            color: white;
+        }
+        .btn-success {
+            background: #43b581;
+            color: white;
+        }
+        .btn-danger {
+            background: #ed4245;
+            color: white;
+        }
+        .preview {
+            background: #36393f;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .discord-embed {
+            background: #2f3136;
+            border-left: 4px solid #00ffff;
+            padding: 16px;
+            border-radius: 4px;
+            max-width: 520px;
+        }
+        .discord-embed .title {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .discord-embed .description {
+            color: #dcddde;
+            font-size: 14px;
+            margin-bottom: 12px;
+            white-space: pre-wrap;
+        }
+        .discord-embed .field {
+            background: rgba(79,84,92,0.32);
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .discord-embed .field-name {
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .discord-embed .field-value {
+            color: #dcddde;
+            font-size: 14px;
+        }
+        .discord-embed .footer {
+            color: #72767d;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Discord Embed Builder</h1>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+        
+        <div class="grid">
+            <div class="left-panel">
+                <div class="panel">
+                    <h2>📝 Embed Details</h2>
+                    <div class="form-group">
+                        <label>Channel</label>
+                        <select id="channel">
+                            <option value="">Loading channels...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="title" placeholder="Embed title">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="description" placeholder="Embed description (supports Discord markdown)"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Color</label>
+                        <input type="color" id="color" value="#00ffff">
+                    </div>
+                    <div class="form-group">
+                        <label>Thumbnail URL</label>
+                        <input type="text" id="thumbnail_url" placeholder="https://example.com/thumbnail.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Banner URL</label>
+                        <input type="text" id="banner_url" placeholder="https://example.com/banner.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Footer Text</label>
+                        <input type="text" id="footer_text" placeholder="Footer text">
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h2>📋 Fields</h2>
+                    <div id="fields"></div>
+                    <button class="btn btn-primary" onclick="addField()">+ Add Field</button>
+                </div>
+                
+                <div class="panel">
+                    <h2>🚀 Actions</h2>
+                    <button class="btn btn-success" onclick="previewEmbed()">Preview</button>
+                    <button class="btn btn-primary" onclick="postEmbed()">Post to Discord</button>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="panel">
+                    <h2>👁️ Preview</h2>
+                    <div class="preview">
+                        <div class="discord-embed" id="embed-preview">
+                            <div class="title">Preview will appear here</div>
+                            <div class="description">Add content to see preview</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let fieldCount = 0;
+        
+        // Load channels on page load
+        fetch('/api/channels')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const select = document.getElementById('channel');
+                    select.innerHTML = '<option value="">Select a channel</option>';
+                    data.channels.forEach(channel => {
+                        const option = document.createElement('option');
+                        option.value = channel.id;
+                        option.textContent = `${channel.guild} - #${channel.name}`;
+                        select.appendChild(option);
+                    });
+                }
+            });
+        
+        function addField() {
+            fieldCount++;
+            const fieldDiv = document.createElement('div');
+            fieldDiv.className = 'field-item';
+            fieldDiv.innerHTML = `
+                <input type="text" placeholder="Field name" class="field-name-input">
+                <textarea placeholder="Field value" class="field-value-input"></textarea>
+                <div class="checkbox-group">
+                    <input type="checkbox" class="field-inline">
+                    <label>Inline</label>
+                </div>
+                <button class="btn btn-danger" onclick="removeField(this)">Remove</button>
+            `;
+            document.getElementById('fields').appendChild(fieldDiv);
+        }
+        
+        function removeField(button) {
+            button.parentElement.remove();
+        }
+        
+        function getFields() {
+            const fields = [];
+            document.querySelectorAll('.field-item').forEach(item => {
+                const name = item.querySelector('.field-name-input').value;
+                const value = item.querySelector('.field-value-input').value;
+                const inline = item.querySelector('.field-inline').checked;
+                if (name && value) {
+                    fields.push({ name, value, inline });
+                }
+            });
+            return fields;
+        }
+        
+        function previewEmbed() {
+            const embedData = {
+                title: document.getElementById('title').value,
+                description: document.getElementById('description').value,
+                color: document.getElementById('color').value,
+                thumbnail_url: document.getElementById('thumbnail_url').value,
+                banner_url: document.getElementById('banner_url').value,
+                footer_text: document.getElementById('footer_text').value,
+                fields: getFields()
+            };
+            
+            updatePreview(embedData);
+        }
+        
+        function updatePreview(data) {
+            const preview = document.getElementById('embed-preview');
+            preview.style.borderLeftColor = data.color;
+            
+            let html = '';
+            if (data.title) {
+                html += `<div class="title">${escapeHtml(data.title)}</div>`;
+            }
+            if (data.description) {
+                html += `<div class="description">${escapeHtml(data.description)}</div>`;
+            }
+            if (data.thumbnail_url) {
+                html += `<img src="${escapeHtml(data.thumbnail_url)}" style="max-width: 80px; float: right; margin-left: 10px; border-radius: 4px;">`;
+            }
+            if (data.banner_url) {
+                html += `<img src="${escapeHtml(data.banner_url)}" style="width: 100%; border-radius: 4px; margin-top: 10px;">`;
+            }
+            data.fields.forEach(field => {
+                html += `
+                    <div class="field">
+                        <div class="field-name">${escapeHtml(field.name)}</div>
+                        <div class="field-value">${escapeHtml(field.value)}</div>
+                    </div>
+                `;
+            });
+            if (data.footer_text) {
+                html += `<div class="footer">${escapeHtml(data.footer_text)}</div>`;
+            }
+            
+            if (!html) {
+                html = '<div class="title">Preview will appear here</div><div class="description">Add content to see preview</div>';
+            }
+            
+            preview.innerHTML = html;
+        }
+        
+        function postEmbed() {
+            const channelId = document.getElementById('channel').value;
+            if (!channelId) {
+                alert('Please select a channel');
+                return;
+            }
+            
+            const embedData = {
+                channel_id: channelId,
+                title: document.getElementById('title').value,
+                description: document.getElementById('description').value,
+                color: document.getElementById('color').value,
+                thumbnail_url: document.getElementById('thumbnail_url').value,
+                banner_url: document.getElementById('banner_url').value,
+                footer_text: document.getElementById('footer_text').value,
+                fields: getFields()
+            };
+            
+            fetch('/api/post_embed', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(embedData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Embed posted successfully!');
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error);
+            });
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

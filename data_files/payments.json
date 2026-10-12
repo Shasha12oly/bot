@@ -1,0 +1,57 @@
+{
+    "pending": {},
+    "verified": {},
+    "rejected": {},
+    "processed_emails": {
+        "1a109a73991ddf86": {
+            "processed_at": "2026-10-05T13:56:55.578827+00:00",
+            "amount": 2.0,
+            "verified": false
+        },
+        "1a1077430cbdd794": {
+            "processed_at": "2026-10-05T13:56:55.602679+00:00",
+            "amount": 1.0,
+            "verified": false
+        },
+        "1a1072bbab83b7a8": {
+            "processed_at": "2026-10-05T13:56:55.615259+00:00",
+            "amount": 1.0,
+            "verified": false
+        },
+        "1a1071958dade3ec": {
+            "processed_at": "2026-10-05T13:56:55.623129+00:00",
+            "amount": 1.0,
+            "verified": false
+        },
+        "1a1071260b701d63": {
+            "processed_at": "2026-10-05T13:56:55.638029+00:00",
+            "amount": 1.0,
+            "verified": false
+        },
+        "1a106f29446812c1": {
+            "processed_at": "2026-10-05T13:56:55.722892+00:00",
+            "amount": 1.0,
+            "verified": false
+        },
+        "1a106e8b013dcd65": {
+            "processed_at": "2026-10-05T13:56:55.733899+00:00",
+            "amount": 1.0,
+            "verified": false
+        },
+        "1a106d0ecf017771": {
+            "processed_at": "2026-10-05T13:56:55.749701+00:00",
+            "amount": 1.0,
+            "verified": false
+        },
+        "1a106c66d88d1a6e": {
+            "processed_at": "2026-10-05T13:56:55.788279+00:00",
+            "amount": 1.0,
+            "verified": false
+        },
+        "1a10506e42f19bee": {
+            "processed_at": "2026-10-05T13:56:55.810500+00:00",
+            "amount": null,
+            "verified": false
+        }
+    }
+}

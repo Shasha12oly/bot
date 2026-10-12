@@ -1,0 +1,11 @@
+{
+  "welcome_enabled": false,
+  "welcome_channel_id": 0,
+  "welcome_message": "Welcome {user} to the server!",
+  "goodbye_enabled": false,
+  "goodbye_channel_id": 0,
+  "goodbye_message": "Goodbye {user}!",
+  "styled_welcome": false,
+  "welcome_image": "",
+  "thumbnail_image": ""
+}

@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python312"]
+
+[phases.build]
+cmds = ["pip install --upgrade pip && pip install -r requirements.txt"]
+
+[start]
+cmd = "python ticket_bot.py"

@@ -1,0 +1,60 @@
+{
+    "ticket_help": [
+        "I can help you with your ticket! Please describe your issue in detail.",
+        "I'm here to assist you. What seems to be the problem?",
+        "Let me help you resolve this. Could you provide more details?",
+        "Please tell me more about the issue you're facing so I can assist you better."
+    ],
+    "purchase_help": [
+        "For purchases, please select the item you want and complete the payment. I'll help you through the process!",
+        "I can guide you through the purchase. What would you like to buy?",
+        "To complete your purchase, please follow the payment instructions in the ticket.",
+        "Check our store for available items. Use the Store button or command to browse products."
+    ],
+    "payment_help": [
+        "We accept INR UPI and LTC cryptocurrency. Click the Payment button or type !Payment to see QR codes.",
+        "Payment options: INR via UPI (QR code available) or LTC crypto. Let me know if you need help!",
+        "For payment, please use one of our supported methods. The QR codes are available in the ticket.",
+        "You can pay via UPI by scanning the QR code or send LTC to the provided address."
+    ],
+    "delivery_status": [
+        "Your order will be delivered automatically after payment verification. This usually takes 1-2 minutes.",
+        "Once payment is verified, the product will be delivered to you automatically.",
+        "Delivery is automatic after payment. If you haven't received it within 5 minutes, please wait for staff assistance."
+    ],
+    "refund_help": [
+        "For refund requests, please contact our support staff. They will review your case.",
+        "Refunds are handled on a case-by-case basis. Please provide your payment details to staff.",
+        "Please reach out to staff with your transaction ID for refund assistance."
+    ],
+    "general_greeting": [
+        "Hello! How can I help you today?",
+        "Hi there! I'm your AI assistant. What do you need?",
+        "Hey! I'm here to help. What's on your mind?",
+        "Greetings! I'm here to assist you with anything you need."
+    ],
+    "general_help": [
+        "I can help with tickets, purchases, and general questions. Just ask!",
+        "Need help? I'm here for you! Whether it's about tickets, purchases, or anything else.",
+        "I'm your friendly assistant. Ask me anything about our services!",
+        "I can assist with: ticket support, purchases, payments, and general questions. What do you need?"
+    ],
+    "thanks": [
+        "You're welcome! Is there anything else I can help with?",
+        "Happy to help! Let me know if you need anything else.",
+        "No problem! I'm here whenever you need assistance.",
+        "My pleasure! Feel free to ask if you have more questions."
+    ],
+    "goodbye": [
+        "Goodbye! Have a great day!",
+        "See you later! Feel free to come back anytime.",
+        "Take care! Don't hesitate to reach out if you need help again.",
+        "Bye! It was nice helping you. Come back anytime!"
+    ],
+    "unknown": [
+        "I'm not sure about that. Let me get a staff member to help you.",
+        "That's a good question! Let me connect you with a human assistant.",
+        "I don't have information about that. A staff member will be with you shortly.",
+        "I'm still learning! A staff member will be here to help you shortly."
+    ]
+}
